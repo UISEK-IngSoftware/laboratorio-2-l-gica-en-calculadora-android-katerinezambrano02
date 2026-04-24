@@ -63,6 +63,10 @@ class CalculatorViewModel: ViewModel() {
     }
 
     private fun enterOperator(op: String) {
+        // Si ya hay al menos dos numeros, calculamos la operacion para mostrar el resultado en pantalla y evitar concatenar los valores
+        if (number1.isNotBlank() && number2.isNotBlank() && operator != null) {
+            performCalculation()
+        }
         if (number1.isNotBlank()) {
             operator = op
         }
